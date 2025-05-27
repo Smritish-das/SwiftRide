@@ -1,4 +1,3 @@
-import logo from '../assets/Untitled_design__2_-removebg-preview.png'
 import CaptainDetails from '../components/CaptainDetails';
 import ConfirmRidePopUp from '../components/ConfirmRidePopUp';
 import RidePopUp from '../components/RidePopUp'
