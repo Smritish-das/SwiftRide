@@ -5,7 +5,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
-const CaptainSignup = () => {
+const CaptainSignup2 = () => {
 
   const navigate = useNavigate();
 
@@ -159,4 +159,4 @@ const CaptainSignup = () => {
   )
 }
 
-export default CaptainSignup
+export default CaptainSignup2
