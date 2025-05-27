@@ -1,5 +1,4 @@
 import { useState,useContext } from 'react'
-import logo from '../assets/Flux_Dev_A_modern_and_sleek_logo_for_SwiftRide_a_ridehailing_a_2.jpeg'
 import { Link } from 'react-router-dom'
 import { CaptainDataContext } from '../context/CaptainContext'
 import axios from 'axios'
@@ -67,7 +66,7 @@ const CaptainSignup = () => {
   return (
     <div className="h-screen flex flex-col justify-between bg-violet-300 p-7">
       <div>
-        <img src={logo} className="w-35 ml-1 mb-5" alt="Logo" />
+        <img src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Untitled_design__2_-removebg-preview_x6wksq.png" className="w-35 ml-1 mb-5" alt="Logo" />
         <form onSubmit={(e) => submitHandler(e)}> 
           <h3 className="text-xl mb-2 font-medium text-gray-800">What's your name?</h3>
           <div className='flex gap-4 mb-5'> 
