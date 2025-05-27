@@ -26,9 +26,6 @@ const captainSchema = new mongoose.Schema({
         required: true,
         minlength: [6, 'Password must be at least 6 characters long']
     },
-    socketId: {
-        type: String
-    },
     status: {
         type: String,
         enum: ['active', 'inactive'],
@@ -56,15 +53,24 @@ const captainSchema = new mongoose.Schema({
             required: true
         }
     },
-    location:{
-        lat:{
-            type: Number,
+    location: {
+        type: {
+            type: String,
+            enum: ['Point'],
+            default: 'Point'
         },
-        lng:{
-            type: Number,
+        coordinates: {
+            type: [Number], // [lng, lat]
+            default: [0, 0]
         }
+    },
+    socketId: {
+        type: String
     }
 });
+
+// Add 2dsphere index for location
+captainSchema.index({ location: '2dsphere' });
 
 captainSchema.methods.generateAuthToken = function(){
     const token = jwt.sign({_id: this._id}, process.env.JWT_SECRET, {expiresIn: '24h'});

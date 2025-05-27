@@ -1,6 +1,6 @@
 import React from 'react'
 
-const LookingForDriver = () => {
+const LookingForDriver = (props) => {
   return (
     <div>
       <h5  className='flex pb-2 justify-center text-xl font-semibold'> Looking for nearby drivers </h5>
@@ -15,16 +15,16 @@ const LookingForDriver = () => {
         <div className='py-3 border-b border-[#b2b2b2]'>
           <div className='absolute left-4 top-55 text-xl'><i className="ri-map-pin-2-fill"></i></div>
           <p className='text-xl font-bold'>562/11-A</p>
-          <p>kaikondrahalli, Bengaluru, Karnataka</p>
+          <p>{props.pickUp}</p>
         </div>
         <div className='py-3 border-b border-[#b2b2b2]'>
           <div className='absolute left-4 top-75 '><i className="ri-square-fill"></i></div>
           <p className='text-xl font-bold'>Third Wave Coffee</p>
-          <p>Bengaluru, Karnataka</p>
+          <p>{props.destination}</p>
         </div>
         <div className='py-3'>
           <div className='absolute left-3 top-93 text-xl '><i className="ri-bank-card-fill"></i></div>
-          <p className='text-xl font-bold'>Rs.193</p>
+          <p className='text-xl font-bold'>Rs.{props.fare}</p>
           <p>Cash</p>
         </div>
       </div>

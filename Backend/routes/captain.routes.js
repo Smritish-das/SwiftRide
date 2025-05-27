@@ -6,7 +6,7 @@ const captainController = require('../controllers/captain.controllers');
 const authMiddleware = require('../middleware/auth.middleware');
 
 router.post ('/register', [
-    body('fullname.firstname').isLength({min: 3}).withMessage('First name must be at least 3 characters long'),
+    body('fullname.firstName').isLength({min: 3}).withMessage('First name must be at least 3 characters long'),
     body('email').isEmail().withMessage('Please provide a valid email'),
     body('password').isLength({min: 6}).withMessage('Password must be at least 6 characters long'),
     body('vehicle.color').isLength({min: 3}).withMessage('Color must be at least 3 characters long'),

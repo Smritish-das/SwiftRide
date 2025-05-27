@@ -1,35 +1,48 @@
-import React from 'react'
-import logo from '../assets/Untitled_design__2_-removebg-preview.png'
-import logo1 from '../assets/2.png'
-import { Link } from 'react-router-dom'; 
+import { Link, useLocation,useNavigate } from 'react-router-dom';
+import { SocketContext } from '../context/SocketContext';
+import { useEffect,useContext } from 'react';
+import LiveTracking from '../components/LiveTracking';
 const Riding = () => {
+  const location = useLocation();
+  const ride = location.state?.ride;
+  const { socket } = useContext(SocketContext)
+  const navigate = useNavigate();
+
+  socket.on('ride-ended', () => {
+    navigate('/home')
+  })
+
+  if (!ride) {
+    return (
+      <div className="h-screen flex items-center justify-center">
+        <p>No ride data available. Please start a ride from the previous page.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="h-screen relative overflow-hidden">
-      <img className="w-35 absolute mt-4 ml-3 " src={logo} />
-      <Link to='/home' className='mt-3 mr-5 h-10 w-10 right-0 rounded-full bg-white absolute flex justify-center items-center text-lg'>
+      <img className="w-35 absolute mt-4 ml-3 z-10" src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Untitled_design__2_-removebg-preview_x6wksq.png" />
+      <Link to='/home' className=' z-10 mt-3 mr-5 h-10 w-10 right-0 rounded-full bg-white absolute flex justify-center items-center text-lg'>
         <i className="ri-home-line"></i>
       </Link>
 
-      <div className="h-screen w-screen">
-        <img
-          className="h-full w-full object-cover"
-          src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif"
-          alt=""
-        />
+      <div className="h-screen w-screen z-0">
+        <LiveTracking />
       </div>
 
-      <div className="bg-white z-10 w-screen bottom-0 absolute pt-3">
+      <div className="bg-white z-20 w-screen bottom-0 absolute pt-3 ">
         
         <div className="flex flex-row justify-between w-full h-30">
           <div className="flex justify-center items-center w-full">
-            <img className="h-16" src={logo1} />
+            <img className="h-16" src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272731/2_aptlbt.png" />
           </div>
           <div className="flex flex-col  w-[150%] items-end pr-3">
-            <h5 className="font-semibold text-[#414141]">SANTH</h5>
-            <h1 className="text-2xl font-bold">KA15AK00-0</h1>
+            <h5 className="font-semibold text-[#414141]">{ride?.captain?.fullname?.firstname}</h5>
+            <h1 className="text-2xl font-bold">{ride?.captain?.vehicle?.plate}</h1>
             <p className="text-s text-[#555555]">White Suzuki S-Presso LXI</p>
             <p>
-              <i className="ri-star-fill px-2"></i>4.9
+              <i className="ri-star-fill px-2"></i>4.8
             </p>
           </div>
         </div>
@@ -41,9 +54,8 @@ const Riding = () => {
               <i className="ri-map-pin-2-fill text-xl"></i>
             </div>
 
-            <div className='flex w-[80%] flex-col px-2'>
-              <p className="text-xl font-bold">Third Wave Coffee</p>
-              <p>Bengaluru, Karnataka</p>
+            <div className='flex w-[80%] flex-col px-2'>              
+              <p>{ride?.pickUp}</p>
             </div>
 
           </div>
@@ -54,7 +66,7 @@ const Riding = () => {
             </div>
 
             <div className='flex w-[80%] flex-col px-2'>
-              <p className="text-xl font-bold">Rs.193</p>
+              <p className="text-xl font-bold">Rs.{ride?.fare}</p>
               <p>Cash</p>
             </div>
             

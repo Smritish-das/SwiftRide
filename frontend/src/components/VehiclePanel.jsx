@@ -1,6 +1,3 @@
-import logo1 from '../assets/Uber-PNG-Photos.png'
-import logo2 from '../assets/Uber_Moto_Orange_312x208_pixels_Mobile.png'
-import logo3 from '../assets/Uber_Auto_558x372_pixels_Desktop.png'
 const VehiclePanel = (props) => {
   return (
     <div>
@@ -9,9 +6,10 @@ const VehiclePanel = (props) => {
         <div onClick={() => {
           props.setconfirmRide(true);
           props.setvehiclePanel(false);
+          props.setvehicleType('car')
           } } className=' flex bg-gray-100 border-3 border-gray-300 active:border-black flex-row py-2  rounded-2xl justify-evenly mb-3'>
           
-          <img src={logo1}
+          <img src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Uber-PNG-Photos_mojgho.png"
           className='h-10 mt-2' 
           />
 
@@ -22,7 +20,7 @@ const VehiclePanel = (props) => {
           </div>
 
           <div>
-              <h2>Rs.193.20</h2>
+              <h2>Rs.{props.fare.car}</h2>
           </div>
           
         </div>
@@ -30,9 +28,10 @@ const VehiclePanel = (props) => {
         <div onClick={() => {
           props.setconfirmRide(true);
           props.setvehiclePanel(false);
+          props.setvehicleType('motorcycle')
           }} className=' flex flex-row py-2 border-3 border-gray-300 active:border-black  bg-gray-100 rounded-2xl justify-evenly mb-3'>
           
-          <img src={logo2}
+          <img src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Uber_Moto_Orange_312x208_pixels_Mobile_cl7dbg.png"
           className='h-10 mt-2' 
           />
 
@@ -43,7 +42,7 @@ const VehiclePanel = (props) => {
           </div>
 
           <div>
-              <h2>Rs.70.20</h2>
+              <h2>Rs.{props.fare.motorcycle}</h2>
           </div>
           
         </div>
@@ -51,9 +50,10 @@ const VehiclePanel = (props) => {
         <div onClick={() => {
           props.setconfirmRide(true);
           props.setvehiclePanel(false);
+          props.setvehicleType('auto')
         }} className=' flex flex-row py-2 border-3 border-gray-300 active:border-black  bg-gray-100 rounded-2xl justify-evenly mb-3'>
           
-          <img src={logo3}
+          <img src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Uber_Auto_558x372_pixels_Desktop_agqup9.png"
           className='h-10 mt-2' 
           />
 
@@ -64,7 +64,7 @@ const VehiclePanel = (props) => {
           </div>
 
           <div >
-              <h2>Rs.130.20</h2>
+              <h2>Rs.{props.fare.auto}</h2>
           </div>
           
         </div>

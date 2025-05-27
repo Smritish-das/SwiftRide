@@ -301,3 +301,40 @@ The request body should be a JSON object containing the following fields:
     "error": "Server error message here"
   }
   ```
+
+## Rides
+
+### POST /ride/create
+Create a new ride.
+
+**Headers:**
+- `Authorization`: Bearer token for user authentication.
+
+**Body Parameters:**
+- `pickUp` (string, required): The pickup address (minimum 3 characters).
+- `destination` (string, required): The destination address (minimum 3 characters).
+- `vehicleType` (string, required): The type of vehicle (`auto`, `car`, or `motorcycle`).
+
+**Responses:**
+- `201 Created`: Ride created successfully.
+- `400 Bad Request`: Validation errors (e.g., invalid pickup or destination address).
+- `401 Unauthorized`: User not authenticated.
+
+---
+
+### GET /ride/get-fare
+Retrieve fare details for a ride.
+
+**Headers:**
+- `Authorization`: Bearer token for user authentication.
+
+**Query Parameters:**
+- `pickUp` (string, required): The pickup address (minimum 3 characters).
+- `destination` (string, required): The destination address (minimum 3 characters).
+
+**Responses:**
+- `200 OK`: Fare details returned successfully.
+- `400 Bad Request`: Validation errors (e.g., missing or invalid parameters).
+- `401 Unauthorized`: User not authenticated.
+- `500 Internal Server Error`: An error occurred while calculating the fare.
+```

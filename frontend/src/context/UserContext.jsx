@@ -1,5 +1,6 @@
-import React,{ useState } from 'react'
-export const UserDataContext = React.createContext()
+import { useState, createContext } from 'react'
+
+export const UserDataContext = createContext()
 
 
 const UserContext = ({ children }) => {

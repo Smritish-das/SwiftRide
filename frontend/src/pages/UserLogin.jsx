@@ -1,5 +1,4 @@
 import {useState, useContext} from 'react'
-import logo from '../assets/Flux_Dev_A_modern_and_sleek_logo_for_SwiftRide_a_ridehailing_a_2.jpeg'
 import { Link } from 'react-router-dom'
 import { UserDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom' 
@@ -37,7 +36,7 @@ const UserLogin = () => {
   return (
     <div className="h-screen flex flex-col justify-between bg-gray-300 p-7">
       <div>
-        <img src={logo} className="w-35 ml-1 mb-5 mt-5" alt="Logo" />
+        <img src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272732/Untitled_design__2_-removebg-preview_x6wksq.png" className="w-35 ml-1 mb-5 mt-5" alt="Logo" />
         <form onSubmit={(e) => submitHandler(e)}> 
           <h3 className="text-xl mb-2 font-medium text-gray-800">What is your email?</h3>
           <input 

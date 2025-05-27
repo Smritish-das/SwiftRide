@@ -13,14 +13,14 @@ const UserProtectedWrapper = ({ children }) => {
    useEffect(() => {
     if (!token) {
         navigate('/user/login')
-    }else{
+    } else {
       axios.get(`${import.meta.env.VITE_BASE_URL}/user/profile`, {
         headers:{
             Authorization: `Bearer ${token}`
         }
       }).then(response => {
-        if(response.status == 200) {
-          setUser(response.data)
+        if(response.status === 200) {
+          setUser(response.data)  
           setIsLoading(false)
         }
       }).catch(error => {
@@ -29,11 +29,11 @@ const UserProtectedWrapper = ({ children }) => {
         navigate('/user/login')
       })
     }
-  })
+  }, [token, navigate, setUser])
 
   return (
     <>
-        { children }
+        { !isLoading && children }
     </>
   )
 }

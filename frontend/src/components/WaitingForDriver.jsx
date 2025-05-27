@@ -1,8 +1,7 @@
 import React from 'react'
-import logo from "../assets/car.jpeg"
-import portrait from "../assets/portrait.png"
 
 const WaitingForDriver = (props) => {
+  
   return (
     <div className="flex flex-col">
       <div className="px-5 py-4 flex flex-row justify-between items-center  border-b-2 border-[#b2b2b2] ">
@@ -13,20 +12,18 @@ const WaitingForDriver = (props) => {
       </div>
       <div className=" flex flex-row  w-screen border-b-2 pb-4 border-[#b2b2b2]">
         <div className="w-40 flex items-center justify-center pl-10">
-          <img className="h-27" src={logo} alt="" />
+          <img className="h-27" src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272731/car_yvtnzq.jpg" alt="" />
           <img
             className="h-19 w-19 absolute left-5 rounded-full object-cover"
-            src={portrait}
+            src="https://res.cloudinary.com/dwuaohlet/image/upload/v1748272736/portrait_clhkti.png"
             alt=""
           />
         </div>
         <div className=" w-60  flex items-end pr-2 flex-col mt-5">
-          <h5 className="font-semibold text-[#414141]">SANTH</h5>
-          <h1 className="text-2xl font-bold">KA15AK00-0</h1>
+          <h5 className="font-semibold text-[#414141]">{props.ride?.captain.fullname.firstname}</h5>
+          <h1 className="text-2xl font-bold">{props.ride?.captain.vehicle.plate}</h1>
           <p className="text-s text-[#555555]">White Suzuki S-Presso LXI</p>
-          <p>
-            <i className="ri-star-fill px-2"></i>4.9
-          </p>
+          <p>{props.ride?.otp}</p>
         </div>
       </div>
 
@@ -44,15 +41,13 @@ const WaitingForDriver = (props) => {
         </div>
         <div className="w-full">
           <div className="h-20 pt-3 border-b-2 border-[#b2b2b2] ">
-            <p className="text-xl font-bold">562/11-A</p>
-            <p>kaikondrahalli, Bengaluru, Karnataka</p>
+            <p>{props.ride?.pickUp}</p>
           </div>
           <div className="h-20 pt-3 border-b-2 border-[#b2b2b2] ">
-            <p className="text-xl font-bold">Third Wave Coffee</p>
-            <p>Bengaluru, Karnataka</p>
+            <p>{props.ride?.destination}</p>
           </div>
           <div className="h-20 pt-3 ">
-            <p className="text-xl font-bold">Rs.193</p>
+            <p className="text-xl font-bold">Rs.{props.ride?.fare}</p>
             <p>Cash</p>
           </div>
         </div>

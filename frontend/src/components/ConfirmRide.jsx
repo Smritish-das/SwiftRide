@@ -1,4 +1,3 @@
-import React from 'react'
 
 const ConfirmRide = (props) => {
   return (
@@ -16,16 +15,16 @@ const ConfirmRide = (props) => {
         <div className='py-3 border-b border-[#b2b2b2]'>
           <div className='absolute left-4 top-65 text-xl'><i className="ri-map-pin-2-fill"></i></div>
           <p className='text-xl font-bold'>562/11-A</p>
-          <p>kaikondrahalli, Bengaluru, Karnataka</p>
+          <p>{props.pickUp}</p>
         </div>
         <div className='py-3 border-b border-[#b2b2b2]'>
           <div className='absolute left-4 top-85 '><i className="ri-square-fill"></i></div>
           <p className='text-xl font-bold'>Third Wave Coffee</p>
-          <p>Bengaluru, Karnataka</p>
+          <p>{props.destination}</p>
         </div>
         <div className='py-3'>
           <div className='absolute left-3 top-103 text-xl '><i className="ri-bank-card-fill"></i></div>
-          <p className='text-xl font-bold'>Rs.193</p>
+          <p className='text-xl font-bold'>Rs.{props.fare}</p>
           <p>Cash</p>
         </div>
       </div>
@@ -33,6 +32,7 @@ const ConfirmRide = (props) => {
       <div className="flex justify-center my-2"><button onClick={() => {
         props.setconfirmRide(false);
         props.setlookingForDriver(true);
+        props.createRide()
       }} className='w-60 rounded-2xl text-2xl text-white py-1 mx-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>Confirm</button></div>
       
     </div>
