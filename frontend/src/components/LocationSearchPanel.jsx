@@ -2,15 +2,7 @@ import "remixicon/fonts/remixicon.css";
 
 const LocationSearchPanel = (props) => {
 
-  
-  // const locations = [
-  //   "Apt 45, Oakwood Residences, 1234 Maple Street, Springfield, IL 62704, USA",
-  //   "House No. 78, Rosewood Residency, MG Road, Pune, Maharashtra 411001, India",
-  //   "Unit 21, Lakeside Towers, 7890 Pine Crescent, Toronto, ON M5G 1Z8, Canada",
-  //   "Flat 3B, Willow Court, 56 Baker Avenue, London W1U 3BW, United Kingdom"
-  // ];
 
-  
   const locations  = props.loc.map(item => item.description);
 
   return (
